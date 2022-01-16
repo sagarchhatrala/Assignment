@@ -1,0 +1,135 @@
+Section 2: Cloud Security
+
+Q-1: Shared responsibility model
+	When it comes to securing your business on AWS, Customer and AWS both are ultimately responsible for making sure that you are secure.
+
+	It's no different than securing a house. The builder constructed the house with four walls and a door. It's their responsibility to make sure the walls are strong and the doors are solid. It's your responsibility, the homeowner, to close and lock the doors.
+
+	Take EC2, for instance. EC2 lives in a physical building, a data center that must be secured. It has a network and a hypervisor that supports your instances and their individual operating systems. On top of that operating system, you have your application, and that supports your data. So for EC2 and every service AWS offers, there's a similar stack of parts that build on top of each other. AWS is 100% responsible for some, you are responsible for the others.
+
+	AWS Responsible for security "of" the cloud
+	Hypervisor
+	Network
+	Physical
+	
+	Customer Responsible for security "in" the cloud
+	Data
+	Application
+	Operating System
+
+	# AWS  Lambda shared responsibility model:
+	AWS responsibility: AWS is responsible for security of LAMBDA ifrastrucure as well as Compliance validation for AWS Lambda. 
+	
+	Where cusotmer responsibilities are: 
+	1. Data protection in AWS Lambda
+	Customer is responsible for maintaining control over your content that is hosted on this infrastructure. This content includes the security configuration and management tasks for the AWS services that you use.
+
+	2. Identity and access management for Lambda
+	Cusotmer is responsible to manage IAM depending on the work that he does in Lambda.
+	For example: 
+	Customer is responsible for creating various User roles such as Service user, Service administrator and IAM administrator.
+	Customer is responsible for managing access using policies, Access control lists and Service control policies.
+
+
+
+Q-2: 
+	1. How can you ensure network security for the chosen virtual machine service?
+	A. Subnets and Network ACL 
+	The public subnets have access to the internet gateway; the private subnets do not. But subnets can also control traffic permissions. Packets are messages from the internet, and every packet that crosses the subnet boundaries gets checked against something called a network access control list or network ACL. This check is to see if the packet has permissions to either leave or enter the subnet based on who it was sent from and how it's trying to communicate.
+
+	B. Groups: Security groups A security group is a virtual firewall that controls inbound and outbound traffic for an Amazon EC2 instance. Architecture diagram of a security group in front of an Amazon EC2 instance By default, a security group denies all inbound traffic and allows all outbound traffic. You can add custom rules to configure which traffic to allow or deny.
+
+	Referance: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
+
+	2. How can you ensure identity and access management for the same?
+	- Secure AWS account root user access keys: When you create an AWS account, you are given what is called the root account user. This root user is the owner of the AWS account and has permission to do anything they want inside of that account.
+
+	- Use roles and policeis to delegate permissions: By following this principle, you help to prevent users or roles from having more permissions than needed to perform their tasks.
+	
+	- Grant least privilege : For example, if an employee needs access to only a specific bucket, specify the bucket in the IAM policy.
+
+	- Create individual IAM users for each person who needs to access AWS. 
+
+	Referance: 
+	https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html
+	https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html
+
+
+
+	3. Finally, how can you ensure logging and monitoring is enabled for the same?
+	It's important to set up monitoring in the cloud. With the elastic nature of AWS services that dynamically scale up and down, you'll want to keep a close pulse on your AWS resources to ensure that your systems are running as expected.
+	For example, if an EC2 instance is being over-utilized, you can trigger a scaling event that automatically would launch another EC2 instance. Or if an application starts sending error responses at an unusually high rate, you can alert an employee to go take a look at what's going on.
+
+	AWS Logging and Monitoring tools:
+	1. Cloudtrail: Monitor, store, and validate activity events for authenticity.  
+	2. Cloudwatch: Analyze millions of operational logs and metrics in near real time to identify trends and patterns in your application performance, and use these insights to reduce MTTR.
+	3. Guardduty: Guard against use of compromised credentials, unusual data access in Amazon Simple Storage Service (S3), API calls from known malicious IP addresses, and more.
+
+
+	Referance: 
+	https://aws.amazon.com/cloudtrail/
+	https://aws.amazon.com/cloudwatch/
+	https://aws.amazon.com/guardduty/
+
+
+
+Q-3: SSRF on Cloud: 
+	1.	AWS EC2.
+	An attackers can access the metadata instance, available via a APIPA range IP address over HTTP— http://169.254.169.254/, and accessible only from the target.
+	For AWS this has always been a cause for concern as there was no authentication present to access this instance, and no requirement for a custom header. 
+	
+	2.	Azure virtual machines.
+	The Azure Instance Metadata service can also be accessed on 169.254.169.254. However customer can configure vm to expact custom HTTP Header in each request.
+
+	3.	Google Compute engine.
+	As similar to Azure Instance, GCP Metadata service can also be accessed on 169.254.169.254. However customer can configure vm to expact custom HTTP Header in each request.
+
+Q-4: Different type of secrets. 
+ 	Most common types of secrets and the purpose: 
+		Privileged account credentials: Provides priviledge access to target service.
+		Passwords : Used for authentication
+		Certificates : Used for authentication 
+		SSH keys :  An access credential for the SSH (secure shell) network protoco
+		API keys : An API key is a token that a client provides when making API calls. 
+		Encryption keys : A random string of bits generated specifically to scramble and unscramble data. 
+
+	Azure uses Azure Key Vault as the secure storage.
+	AWS uses AWS Secrets Manager as the secure storage.
+
+Q-5: Requirments : 
+    1. A Frontend instance to handle the data requests.
+    2. A Backend instance to handle the database requests.
+    3. Ensure the model is secure.
+    4. Ensure the model is highly available.
+
+	# The ideal way to create a cloud infrastructure:
+	When architecting technology solutions, if you neglect any one of operational excellence, security and reliability then itcan become challenging to build a system that delivers on your expectations and requirements.
+	
+	Basic principle which needs to be followed for ideal cloud infrastructure
+	1. Operational Excellence
+	2. Security
+	3. Reliability
+
+	Operational Excellence:
+	Operational Excellence includes the ability to support development and run workloads effectively, gain insight into their operations, and to continuously improve supporting processes and procedures to deliver business values.
+
+
+	Security: 
+	The security pillar encompasses the ability to protect data, systems, and assets to take advantage of cloud technologies to improve your security.
+	Various design principles for security in cloud based application:
+	1. Implement IAM
+	2. Enable traceability
+	3. Apply security at all the layers
+	4. Automate security best practices
+	5. Protect data in transit and at rest
+
+
+	Reliability:
+	This includes the ability to operate and test the workload through its total lifecycle.
+	There are four design principles for reliability in the cloud:
+	1. Automatically recover from failure
+	2. Test recovery procedures 
+	3. Scale horizontally to increase aggregate workload availability
+	4. Manage changes in automation
+
+		

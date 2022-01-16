@@ -1,0 +1,42 @@
+ORG: CorpoCorpora ACME
+
+Section 1: Information Security 
+
+1.	Identify possible threat agents.
+
+	A. Insider threats - An individual who works within targeted organization
+
+	B. Outsider thrests:
+		Script kiddies - Less experience malicious hackers who use existing software to launch hacking attacks
+		Organized cybercriminals - Group of tend to associate with criminal leaders who have the ideas, influence and contacts to pull off complex, far-reaching scams and hacks.
+
+
+2.	Identify possible attacks.
+	Phishing: Occurs when an attacker, masquerading as a trusted entity, dupes a victim into opening an email, instant message, or text message. An attacker might try to gain access to the private intranet by phishing employees.
+
+	Malware: Attackers might use malware to infect the intranet. For example, they may infect it with ransomware.
+
+	Physical attacks: Attackers might be able to gain physical access to the building. 
+
+3.	Identify exploitable vulnerabilities.
+
+	No content filter: Employees can download files from any site they want. This makes it much easier for attackers to introduce malware.
+
+	Poor access control policies: Every employee in a department should not have access to all of that department's data.
+
+	Older OS: Older versions of the OS are more vulnerable as compared to laterst veriosn of OS.
+
+4.	Possible remediation for the vulnerabilities identified in step 3.
+
+	No content filter: Use Content-control software
+	Content-control software determines what content will be available or be blocked.
+
+	Poor access control policies: Enable ACL Access Controll
+	For example: 
+	1: Deny Access By Default
+	2: Enable Role-based Access Control
+	3: Enable Permission-Based Access Control
+	4: Enable Mandatory access control
+
+	Older OS: Upgrade each and every workstations to latest possible version of OS.
+	For example: If employee is using Windows 7 then upgrade it to Windows 11 which is latest possible version. 
