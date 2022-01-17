@@ -1,0 +1,460 @@
+{
+    "Group": [
+        {
+            "id": "",
+            "name": "",
+            "type": "Group",
+            "config": null,
+            "source": "",
+            "tags": null,
+            "line": 0
+        }
+    ],
+    "aws_s3_bucket": [
+        {
+            "id": "aws_s3_bucket.allUsersReadAccess",
+            "name": "allUsersReadAccess",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "public-read",
+                "bucket": "my-tf-test-bucket",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [],
+                "tags": null,
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.allUsersReadWriteAccess",
+            "name": "allUsersReadWriteAccess",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "public-read-write",
+                "bucket": "my-tf-test-bucket",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [],
+                "tags": null,
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.allUsersWriteAccess",
+            "name": "allUsersWriteAccess",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "public-read-write",
+                "bucket": "my-tf-test-bucket",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [],
+                "tags": null,
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.authUsersReadAccess",
+            "name": "authUsersReadAccess",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "authenticated-read",
+                "bucket": "my-tf-test-bucket",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [],
+                "tags": null,
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.noS3BucketSseRules",
+            "name": "noS3BucketSseRules",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "private",
+                "bucket": "mybucket",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [],
+                "tags": {
+                    "Environment": "Dev",
+                    "Name": "nos3BucketSseRules"
+                },
+                "tags_all": {
+                    "Environment": "Dev",
+                    "Name": "nos3BucketSseRules"
+                },
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.s3BucketNoWebsiteIndexDoc",
+            "name": "s3BucketNoWebsiteIndexDoc",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "public-read",
+                "bucket": "website",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [
+                    {
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {
+                                        "kms_master_key_id": "some-key-id",
+                                        "sse_algorithm": "aws:kms"
+                                    }
+                                ],
+                                "bucket_key_enabled": null
+                            }
+                        ]
+                    }
+                ],
+                "tags": null,
+                "website": [
+                    {
+                        "error_document": "error.html",
+                        "index_document": "index.html",
+                        "redirect_all_requests_to": null,
+                        "routing_rules": null
+                    }
+                ]
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.s3BucketSseRulesWithKmsNull",
+            "name": "s3BucketSseRulesWithKmsNull",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "private",
+                "bucket": "mybucket",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [
+                    {
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {
+                                        "kms_master_key_id": null,
+                                        "sse_algorithm": "aws:kms"
+                                    }
+                                ],
+                                "bucket_key_enabled": null
+                            }
+                        ]
+                    }
+                ],
+                "tags": {
+                    "Environment": "Dev",
+                    "Name": "s3BucketSseRulesWithNoKms"
+                },
+                "tags_all": {
+                    "Environment": "Dev",
+                    "Name": "s3BucketSseRulesWithNoKms"
+                },
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.s3MFADeleteOnly",
+            "name": "s3MFADeleteOnly",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "private",
+                "bucket": "tf-test",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [
+                    {
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {
+                                        "kms_master_key_id": "some-key-id",
+                                        "sse_algorithm": "aws:kms"
+                                    }
+                                ],
+                                "bucket_key_enabled": null
+                            }
+                        ]
+                    }
+                ],
+                "tags": null,
+                "versioning": [
+                    {
+                        "enabled": false,
+                        "mfa_delete": true
+                    }
+                ],
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.s3VersioningMfaFalse",
+            "name": "s3VersioningMfaFalse",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "private",
+                "bucket": "tf-test",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [
+                    {
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {
+                                        "kms_master_key_id": "some-key-id",
+                                        "sse_algorithm": "aws:kms"
+                                    }
+                                ],
+                                "bucket_key_enabled": null
+                            }
+                        ]
+                    }
+                ],
+                "tags": null,
+                "versioning": [
+                    {
+                        "enabled": false,
+                        "mfa_delete": false
+                    }
+                ],
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.s3VersioningOnly",
+            "name": "s3VersioningOnly",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "private",
+                "bucket": "tf-test",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [
+                    {
+                        "rule": [
+                            {
+                                "apply_server_side_encryption_by_default": [
+                                    {
+                                        "kms_master_key_id": "some-key-id",
+                                        "sse_algorithm": "aws:kms"
+                                    }
+                                ],
+                                "bucket_key_enabled": null
+                            }
+                        ]
+                    }
+                ],
+                "tags": null,
+                "versioning": [
+                    {
+                        "enabled": true,
+                        "mfa_delete": false
+                    }
+                ],
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.vulnTestBucketSp1",
+            "name": "vulnTestBucketSp1",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "private",
+                "bucket": "my-tf-test-bucket",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [
+                    {
+                        "id": "",
+                        "permissions": [
+                            "READ_ACP",
+                            "WRITE"
+                        ],
+                        "type": "Group",
+                        "uri": "https://acs.amazonaws.com/groups/global/AllUsers"
+                    }
+                ],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [],
+                "tags": null,
+                "versioning": [
+                    {
+                        "enabled": true,
+                        "mfa_delete": false
+                    }
+                ],
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket.vulnTestBucketSp2",
+            "name": "vulnTestBucketSp2",
+            "type": "aws_s3_bucket",
+            "config": {
+                "acl": "public-read",
+                "bucket": "my-tf-test-bucket",
+                "bucket_prefix": null,
+                "cors_rule": [],
+                "force_destroy": false,
+                "grant": [],
+                "lifecycle_rule": [],
+                "logging": [],
+                "object_lock_configuration": [],
+                "policy": null,
+                "replication_configuration": [],
+                "server_side_encryption_configuration": [],
+                "tags": null,
+                "versioning": [
+                    {
+                        "enabled": true,
+                        "mfa_delete": false
+                    }
+                ],
+                "website": []
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        }
+    ],
+    "aws_s3_bucket_policy": [
+        {
+            "id": "aws_s3_bucket_policy.vulnTestBucketPolicySp1",
+            "name": "vulnTestBucketPolicySp1",
+            "type": "aws_s3_bucket_policy",
+            "config": {
+                "bucket": "aws_s3_bucket.vulnTestBucketSp1",
+                "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Id\": \"MYBUCKETPOLICY\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Principal\": \"*\",\n      \"Action\": \"*\"\n    }\n  ]\n}\n"
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        },
+        {
+            "id": "aws_s3_bucket_policy.vulnTestBucketPolicySp2",
+            "name": "vulnTestBucketPolicySp2",
+            "type": "aws_s3_bucket_policy",
+            "config": {
+                "bucket": "aws_s3_bucket.vulnTestBucketSp2",
+                "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Id\": \"MYBUCKETPOLICY\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Principal\": \"*\",\n      \"Action\": \"*\"\n    }\n  ]\n}\n"
+            },
+            "source": "",
+            "tags": null,
+            "line": 0
+        }
+    ]
+}
