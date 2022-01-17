@@ -11,11 +11,11 @@ for value in data['aws_s3_bucket']:
     if value['config']['acl'] != 'private':
         print("Acl is not private for: {}".format(value['id'])) 
 
-# S3 Bicket IDs where Bucket policy has Principal = “*”
+# S3 Bicket IDs where Bucket policy has Principal = '*'
 
 for value in data['aws_s3_bucket_policy']:
-    a = json.loads(value['config']['policy'])
+    policy = json.loads(value['config']['policy'])
     
-    for b in a['Statement']:
-        if b['Principal'] == '*':
+    for id in policy['Statement']:
+        if id['Principal'] == '*':
             print("S3 Bicket IDs where Bucket policy has Principal = '*': {}".format(value['id']))
